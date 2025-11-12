@@ -1,0 +1,106 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Kumbi Oil Trading plc — Global Fuel Trading & Logistics</title>
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="brand">Kumbi Oil Trading plc</div>
+      <nav class="nav">
+        <a href="#services">Services</a>
+        <a href="#fleet">Fleet</a>
+        <a href="#clients">Clients</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+<!-- Hero Section with Background Image & Overlay -->
+
+<!-- Hero Section with Background, Overlay, and CTA -->
+<!-- Hero Section with Background, Overlay, and CTA -->
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="container hero-inner fade-in">
+    <div class="hero-copy">
+      <h1>Global Fuel Trading & Logistics</h1>
+      <p>Reliable, professional, and secure fuel supply solutions for businesses worldwide.</p>
+      <a href="#contact" class="btn btn-hero">Get in Touch</a>
+    </div>
+    <div class="hero-image">
+         <img src="{% static 'images/hero-fuel-trading.jpg.jpg' %}" alt="Fuel Trading">
+    </div>
+  </div>
+</section>
+
+  <!-- Services with Icons -->
+  <section id="services" class="cards container">
+    <h2>Our Services</h2>
+    <div class="card-grid">
+      <article class="card">
+        <img src="{% static 'images/hero-fuel-trading.jpg.jpg' %}" alt="Trading Icon" style="width:50px; margin-bottom:10px;">
+        <h3>Trading & Procurement</h3>
+        <p>Flexible sourcing across major markets, competitive pricing, and hedging advisory.</p>
+      </article>
+      <article class="card">
+        <img src="{% static 'images/OIP.jpg' %}" alt="Logistics Icon" style="width:50px; margin-bottom:10px;">
+        <h3>Logistics & Delivery</h3>
+        <p>Trusted carriers, real‑time tracking, and optimized delivery scheduling.</p>
+      </article>
+      <article class="card">
+        <img src="{% static 'images/OIP.webp' %}" alt="Storage Icon" style="width:50px; margin-bottom:10px;">
+        <h3>Storage & Terminals</h3>
+        <p>Network of bonded terminals, compliant tank farms, and inventory management.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Fleet & Partners with Images -->
+  <section id="fleet" class="section-simple container">
+    <h2>Our Fleet & Partners</h2>
+    <p>We work with a vetted network of tankers, pipeline operators, and terminal owners to ensure continuity of supply.</p>
+    <div class="fleet-grid" style="display:flex; gap:16px; flex-wrap:wrap;">
+      <img src="{% static 'images/OIP(1).webp' %}" alt="Fleet 1" style="width:250px; border-radius:10px;">
+      <img src="{% static 'images/OIP.jpg' %}" alt="Fleet 2" style="width:250px; border-radius:10px;">
+      <img src="{% static 'images/fleet3.jpg' %}" alt="Fleet 3" style="width:250px; border-radius:10px;">
+    </div>
+  </section>
+
+  <!-- Clients with Logos -->
+  <section id="clients" class="section-simple container">
+    <h2>Trusted By</h2>
+    <div class="clients-grid" style="display:flex; gap:20px; flex-wrap:wrap; justify-content:center;">
+      <img src="{% static 'images/client1.png' %}" alt="Client 1" style="width:120px;">
+      <img src="{% static 'images/client2.png' %}" alt="Client 2" style="width:120px;">
+      <img src="{% static 'images/client3.png' %}" alt="Client 3" style="width:120px;">
+      <img src="{% static 'images/client4.png' %}" alt="Client 4" style="width:120px;">
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section id="contact" class="contact container">
+    <h2>Contact Us</h2>
+
+    {% for message in messages %}
+      <div class="notice {{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+
+    <form method="post" class="contact-form">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn">Send Inquiry</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer container">
+    © {{ now|date:'Y' }} Kumbi Oil Trading plc, developed by Habtom - ACCA — All rights reserved.
+  </footer>
+
+  <script src="{% static 'scripts.js' %}"></script>
+</body>
+</html>
